@@ -1,8 +1,10 @@
-@extends('layouts.base');
+@extends('adminlte::page')
 
-@section('css')
-<link href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-@endsection
+@section('title', 'HMS')
+
+@section('content_header')
+    <h1>Expedientes</h1>
+@stop
 
 @section('content')
 <a href="expedientes/create" class="btn btn-primary mb-3">Crear</a>
@@ -48,20 +50,23 @@
         </tbody>
     </thead>
 </table>
+@stop
+
+@section('css')
+<link href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+@stop
 
 @section('js')
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap5.min.js"></script>
 
-<script>
-    $(document).ready(function () {
-    $('#expedientes').DataTable({
-        "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "All"]]
+    <script>
+        $(document).ready(function () {
+        $('#expedientes').DataTable({
+            "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "All"]]
+        });
     });
-});
-</script>
-
-@endsection
-
-@endsection
+    </script>   
+    <script> console.log('Hi!'); </script>
+@stop

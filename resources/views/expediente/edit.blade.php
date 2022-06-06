@@ -1,8 +1,12 @@
-@extends('layouts.base');
+@extends('adminlte::page')
+
+@section('title', 'HMS')
+
+@section('content_header')
+    <h1>Editar expediente</h1>
+@stop
 
 @section('content')
-<h2>Editar registros</h2>
-
 <form action="/expedientes/{{$expediente->id}}" method="post">
     @csrf    
     @method('put')
@@ -47,5 +51,12 @@
   <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
   
 </form>
+@stop
 
-@endsection
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
