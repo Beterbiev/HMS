@@ -1,43 +1,41 @@
 @extends('adminlte::page')
 
-@section('title', 'Expedientes')
+@section('title', 'Vales')
 
 @section('content_header')
-    <h1>Expedientes</h1>
+    <h1>Vales</h1>
 @stop
 
 @section('content')
-<a href="expedientes/create" class="btn btn-primary mb-3">Crear</a>
+<a href="vales/create" class="btn btn-primary mb-3">Crear</a>
 
-<table id="expedientes" class="table table-striped table-bordered mt-4">
+<table id="vales" class="table table-striped table-bordered mt-4">
     <thead class="bg-primary text-white">
         <tr>
-            <th scope="col">No. exp</th>
+            <th scope="col">Folio</th>
+            <th scope="col">Fecha</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Diagnostico</th>
-            <th scope="col">Fecha de ingreso</th>
-            <th scope="col">Fecha de egreso</th>
+            <th scope="col">Descripcion</th>
             <th scope="col">Medico</th>
-            <th scope="col">No. hab</th>
+            <th scope="col">Total</th>
             <th scope="col">Funciones</th>
         </tr>
         
         <tbody>
             
-            @foreach ($expedientes as $expediente)
+            @foreach ($vales as $vale)
             <tr>
-                <td>{{ $expediente->exp }}</td>
-                <td>{{ $expediente->nombre }}</td>
-                <td>{{ $expediente->diagnostico }}</td>
-                <td>{{ $expediente->fecha_ingreso }}</td>
-                <td>{{ $expediente->fecha_egreso }}</td>
-                <td>{{ $expediente->medico }}</td>
-                <td>{{ $expediente->num_habitacion }}</td>
+                <td>{{ $vale->folio }}</td>
+                <td>{{ $vale->fecha }}</td>
+                <td>{{ $vale->nombre }}</td>
+                <td>{{ $vale->descripcion }}</td>
+                <td>{{ $vale->medico }}</td>
+                <td>{{ $vale->total }}</td>
                 <td>
-                    <form action="{{ route ('expedientes.destroy', $expediente->id) }}" method="post">
+                    <form action="{{ route ('vales.destroy', $vale->id) }}" method="post">
                     @csrf
                     @method('delete')
-                    <a href="/expedientes/{{$expediente->id}}/edit" class="btn btn-info mb-1">Editar</a>
+                    <a href="/vales/{{$vale->id}}/edit" class="btn btn-info mb-1">Editar</a>
                     <button class="btn btn-danger mb-1">Eliminar</button>
                     </form>
                 </td>
@@ -56,10 +54,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap5.min.js"></script>
-    
+
     <script>
         $(document).ready(function () {
-        $('#expedientes').DataTable({
+        $('#vales').DataTable({
             "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "All"]]
         });
     });

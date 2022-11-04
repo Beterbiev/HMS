@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Vale;
 
-class ArticuloController extends Controller
+class ValeController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +18,8 @@ class ArticuloController extends Controller
      */
     public function index()
     {
-        //
+        $vales = Vale::all();
+        return view('vale.index')->with('vales', $vales);
     }
 
     /**
@@ -23,7 +29,7 @@ class ArticuloController extends Controller
      */
     public function create()
     {
-        //
+        return view('vale.create');
     }
 
     /**
@@ -34,7 +40,17 @@ class ArticuloController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vales = new Vale();
+        $vales-> folio = $request->get('folio');
+        $vales-> fecha = $request->get('fecha');
+        $vales-> nombre = $request->get('nombre');
+        $vales-> descripcion = $request->get('descripcion');
+        $vales-> medico = $request->get('medico');
+        $vales-> total = $request->get('total');
+
+        $vales->save();
+
+        return redirect('/vales');
     }
 
     /**
@@ -56,7 +72,8 @@ class ArticuloController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vale = Vale::find($id);
+        return view('vale.edit')->with('vale', $vale);
     }
 
     /**
@@ -68,7 +85,18 @@ class ArticuloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $vale = Vale::find($id);
+
+        $vale-> folio = $request->get('folio');
+        $vale-> fecha = $request->get('fecha');
+        $vale-> nombre = $request->get('nombre');
+        $vale-> descripcion = $request->get('descripcion');
+        $vale-> medico = $request->get('medico');
+        $vale-> total = $request->get('total');
+
+        $vale->save();
+
+        return redirect('/vales');
     }
 
     /**
@@ -79,6 +107,8 @@ class ArticuloController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $vale = Vale::find($id);
+        $vale-> delete();
+        return redirect('/vales');
     }
 }

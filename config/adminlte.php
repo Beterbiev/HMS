@@ -249,9 +249,22 @@ return [
         [
             'text'        => 'Expedientes',
             'url'         => 'expedientes',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 'CRUD',
-            'label_color' => 'warning',
+            'icon'        => 'fas fa-archive',
+        ],
+        [
+            'text'        => 'Vales',
+            'url'         => 'vales',
+            'icon'        => 'fas fa-cash-register',
+        ],
+        [
+            'text'        => 'Cortes',
+            'url'         => 'cortes',
+            'icon'        => 'fas fa-balance-scale-right',
+        ],
+        [
+            'text'        => 'CENAVIS',
+            'url'         => 'certificados',
+            'icon'        => 'fas fa-venus-mars',
         ],
         ['header' => 'Configuración de la cuenta'],
         [
@@ -265,22 +278,6 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         
-        ['header' => 'Etiquetas'],
-        [
-            'text'       => 'Importante',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'Emergencia',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'Información',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
     ],
 
     /*

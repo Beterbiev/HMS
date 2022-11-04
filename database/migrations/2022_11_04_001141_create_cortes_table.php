@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('expedientes', function (Blueprint $table) {
+        Schema::create('cortes', function (Blueprint $table) {
             $table->id();
-            $table->integer('exp');
-            $table->string('nombre',60);
-            $table->string('diagnostico',50);
-            $table->DATE('fecha_ingreso');
-            $table->DATE('fecha_egreso');
-            $table->string('medico',60);
-            $table->integer('num_habitacion');
+            $table->integer('folio');
+            $table->DATE('fecha');
+            $table->decimal('ingresos',9,2);
+            $table->decimal('egresos',9,2);
+            $table->decimal('total',9,2);
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('expedientes');
+        Schema::dropIfExists('cortes');
     }
 };

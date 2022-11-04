@@ -19,6 +19,12 @@ Route::get('/', function () {
 
 Route::resource('expedientes', 'App\Http\Controllers\ExpedienteController');
 
+Route::resource('cortes', 'App\Http\Controllers\CorteController');
+
+Route::resource('vales', 'App\Http\Controllers\ValeController');
+
+Route::resource('certificados', 'App\Http\Controllers\CertificadoController');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

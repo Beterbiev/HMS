@@ -41,15 +41,13 @@ class ExpedienteController extends Controller
     public function store(Request $request)
     {
         $expedientes = new Expediente();
-        $expedientes-> id = $request->get('id');
+        $expedientes-> exp = $request->get('exp');
         $expedientes-> nombre = $request->get('nombre');
-        $expedientes-> apellido = $request->get('apellido');
-        $expedientes-> direccion = $request->get('direccion');
-        $expedientes-> telefono = $request->get('telefono');
+        $expedientes-> diagnostico = $request->get('diagnostico');
         $expedientes-> fecha_ingreso = $request->get('fecha_ingreso');
         $expedientes-> fecha_egreso = $request->get('fecha_egreso');
-        $expedientes-> peso = $request->get('peso');
-        $expedientes-> altura = $request->get('altura');
+        $expedientes-> medico = $request->get('medico');
+        $expedientes-> num_habitacion = $request->get('num_habitacion');
 
         $expedientes->save();
 
@@ -91,15 +89,13 @@ class ExpedienteController extends Controller
     {
         $expediente = Expediente::find($id);
         
-        $expediente-> id = $request->get('id');
+        $expediente-> exp = $request->get('exp');
         $expediente-> nombre = $request->get('nombre');
-        $expediente-> apellido = $request->get('apellido');
-        $expediente-> direccion = $request->get('direccion');
-        $expediente-> telefono = $request->get('telefono');
+        $expediente-> diagnostico = $request->get('diagnostico');
         $expediente-> fecha_ingreso = $request->get('fecha_ingreso');
         $expediente-> fecha_egreso = $request->get('fecha_egreso');
-        $expediente-> peso = $request->get('peso');
-        $expediente-> altura = $request->get('altura');
+        $expediente-> medico = $request->get('medico');
+        $expediente-> num_habitacion = $request->get('num_habitacion');
 
         $expediente->save();
 
